@@ -1,0 +1,27 @@
+@charset "UTF-8";
+/* Slider tête de chats */
+swiper-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+}
+
+swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 450px;
+  height: 500px;
+}
+swiper-slide img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+}
+
+.story #characters h3 {
+  width: 50%;
+  text-align: center;
+  background-position: center;
+  padding: 1em 1em;
+  margin-left: -80px;
+}

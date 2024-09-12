@@ -1,0 +1,133 @@
+/* Responsive Design - Taille bloc titre du site */
+@media (max-width: 550px) {
+  .site-title {
+    width: 85%;
+  }
+}
+/* Responsive Design - Titre  */
+@media (max-width: 470px) {
+  #studio h2 {
+    font-size: 25px;
+  }
+}
+/* Responsive Design - Menu afficher le Burger */
+@media screen and (min-width: 700px) {
+  .menu-toggle {
+    display: block;
+  }
+}
+/* Responsive Design - Menu position du Burger */
+@media (max-width: 550px) {
+  .menu-toggle {
+    right: 5%;
+  }
+}
+/* Responsive Design - Menu police titre */
+@media (max-width: 1000px) {
+  .menu-title a {
+    font-size: 30px !important;
+  }
+}
+/* Responsive Design - Menu masquer les fleurs */
+@media screen and (max-width: 800px) {
+  .histoire::before, .histoire::after {
+    display: none;
+  }
+  .personnages::before, .personnages::after {
+    display: none;
+  }
+  .lieu::before, .lieu::after {
+    display: none;
+  }
+  .studiokoukaki::before {
+    display: none;
+  }
+}
+/* Responsive Design - logo sur video */
+@media (max-width: 1000px) {
+  .logo-parallaxe {
+    background-size: 60%;
+    background-position: center;
+  }
+}
+@media (max-width: 1000px) {
+  .logo-parallaxe {
+    background-size: 50%;
+    background-position: center;
+  }
+}
+/* Responsive Design - masquer la video sur mobile et afficher image*/
+@media (max-width: 500px) {
+  .banner video {
+    visibility: hidden;
+  }
+  .banner {
+    background: url("../assets/images/banner.png") no-repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+}
+/* Responsive Design - Personnages */
+@media (max-width: 800px) {
+  .story #characters {
+    width: 100%;
+    margin: 0px;
+  }
+  .story #characters h3 {
+    margin-left: 0px;
+    width: 100%;
+  }
+  swiper-slide img {
+    width: 70%;
+  }
+}
+@media (min-width: 800px) and (max-width: 1200px) {
+  .story #characters h3 {
+    margin-left: 300px;
+  }
+  swiper-container {
+    width: 100%;
+  }
+}
+/* Responsive Design - Lieu masquer les nuages */
+@media (max-width: 700px) {
+  .story #place img {
+    display: none;
+  }
+}
+/* Responsive Design - Oscars */
+@media (max-width: 1000px) {
+  #oscars {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .oscars-msg {
+    margin-left: 0px;
+    background-size: 100%;
+  }
+  .oscars-msg h3 {
+    text-align: center;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 70px;
+    font-size: 3rem;
+  }
+}
+@media (max-width: 700px) {
+  .oscars-msg h3 {
+    font-size: 30px;
+    padding-top: 40px;
+  }
+  .oscars-msg {
+    height: 250px;
+  }
+}
+@media (max-width: 550px) {
+  .oscars-msg h3 {
+    font-size: 22px;
+  }
+  .oscars-msg {
+    height: 200px;
+  }
+}

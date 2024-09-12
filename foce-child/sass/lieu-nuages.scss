@@ -1,0 +1,18 @@
+/* Lieu - Les nuages */
+.story #place {
+  background-image: url("../assets/images/Studio_Koukaki-image_place.png");
+  position: relative;
+  background-position: right;
+
+  & img {
+    height: 316 px !important;
+    position: absolute;
+    margin-top: 80px;
+    filter: blur(10px);
+  }
+
+}
+
+.petit-nuage{
+  margin-top: 230px !important;
+}

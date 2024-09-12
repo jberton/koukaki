@@ -1,0 +1,546 @@
+@charset "UTF-8";
+/*
+ Theme Name:  Fleurs d'orangers et chats errants - Oscars Short
+ Theme URI: https://www.koukaki.local
+ Author: Studio Koukaki
+ Author URI: https://www.koukaki.local
+ Template: foce
+ Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
+ Version: 0.1
+ */
+/* Effet animation sur les fleurs et apparition des sections */
+/* Animation de rotation sur toutes les fleurs*/
+@keyframes rotation-fleur {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.story h2::after {
+  animation: rotation-fleur 15s linear infinite;
+  transform-origin: 50% 43%;
+}
+
+.story__article::after {
+  animation: rotation-fleur 15s linear infinite;
+}
+
+#studio h2::before {
+  animation: rotation-fleur 15s linear infinite;
+  transform-origin: 50% 46%;
+}
+#studio h2::after {
+  animation: rotation-fleur 15s linear infinite;
+  transform-origin: 50% 43%;
+}
+
+#oscars::before {
+  animation: rotation-fleur 15s linear infinite;
+}
+#oscars::after {
+  animation: rotation-fleur 15s linear infinite;
+}
+
+.site-footer ul::after {
+  animation: rotation-fleur 15s linear infinite;
+}
+
+/* Animation apparition des sections */
+.story.animate-on-scroll, .studio.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.story.animate-on-scroll.is-visible, .studio.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Disposition et animation de la vidéo et du logo + apparition des titres */
+/* Disposition video avec logo dessus*/
+.banner {
+  position: relative;
+  min-height: auto;
+  background-image: none;
+}
+.banner img {
+  position: absolute;
+}
+
+/* Animation effet parallaxe logo sur video */
+.logo-parallaxe {
+  background: url("../assets/images/logo.png") no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100%;
+  height: 100%;
+  width: 680px;
+  position: absolute;
+  /* Combiner les 2 animations */
+  animation: 1.5s linear logo-load, 6s linear 2s infinite normal both running logo-flotte;
+}
+
+.logo-parallaxe.is-visible {
+  background-attachment: scroll;
+  animation: none;
+  background-position: bottom;
+  transition: background-position 2s ease;
+}
+
+/* Animation apparition de la vidéo */
+@keyframes banner-video {
+  0% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.banner video {
+  animation-name: banner-video;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  width: 100%;
+}
+
+/* Animation apparition du logo sur la vidéo */
+@keyframes logo-load {
+  0% {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+/* Animation logo effet de flottement comme la tete des chats */
+@keyframes logo-flotte {
+  30% {
+    transform: translateX(30px) translateY(20px);
+  }
+  40% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: translateX(-20px) translateY(0px);
+  }
+  60% {
+    transform: translateX(10px) translateY(-10px);
+  }
+  70% {
+    transform: rotate(-3deg);
+  }
+  80% {
+    transform: translateX(20px) translateY(20px);
+  }
+  95% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: translateX(0px) translateY(0px);
+  }
+}
+/* Animation apparition des titres */
+@keyframes titre-anim {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+h2 span.is-visible {
+  animation-name: titre-anim;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+/* Disposition des titres */
+h2 span {
+  opacity: 0;
+  display: block;
+}
+
+/* Section Oscars */
+/* Disposition section Oscars */
+#oscars {
+  position: relative;
+  margin-top: 3em !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 966px;
+  margin: auto;
+  /* Ajouter les fleurs autours section Oscars */
+}
+#oscars img {
+  display: flex;
+  margin-top: 40px;
+  margin-right: -30px;
+  width: 260px;
+  height: 129px;
+}
+#oscars::before {
+  content: url("../assets/images/Sunflower.png");
+  position: absolute;
+  left: -10em;
+  top: -4em;
+}
+#oscars::after {
+  content: url("../assets/images/orchid.png");
+  position: absolute;
+  right: -20em;
+  bottom: 14em;
+}
+
+.oscars-msg {
+  background-image: url("../assets/images/Rectangle 23.png");
+  background-size: 800px;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 350px;
+  margin-left: -50px;
+}
+.oscars-msg h3 {
+  color: white;
+  text-align: left;
+  line-height: 1.2 !important;
+  padding-left: 60px;
+  padding-right: 10px;
+  padding-top: 65px;
+}
+
+/* Masquer les fleurs autours du footer */
+.site-footer::before {
+  content: "";
+}
+.site-footer::after {
+  content: "";
+}
+
+/* Slider tetes de chats */
+/* Slider tête de chats */
+swiper-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+}
+
+swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 450px;
+  height: 500px;
+}
+swiper-slide img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+}
+
+.story #characters h3 {
+  width: 50%;
+  text-align: center;
+  background-position: center;
+  padding: 1em 1em;
+  margin-left: -80px;
+}
+
+/* Lieu - Les nuages */
+/* Lieu - Les nuages */
+.story #place {
+  background-image: url("../assets/images/Studio_Koukaki-image_place.png");
+  position: relative;
+  background-position: right;
+}
+.story #place img {
+  height: 316 px !important;
+  position: absolute;
+  margin-top: 80px;
+  filter: blur(10px);
+}
+
+.petit-nuage {
+  margin-top: 230px !important;
+}
+
+/* Menu */
+/* Animation du Menu Burger */
+.menu-toggle {
+  width: 50px;
+  position: absolute;
+  right: 10%;
+  top: 25px;
+  padding: 0% !important;
+  cursor: pointer;
+}
+
+.line {
+  width: 22px;
+  height: 2px;
+  transition: transform 0.5s;
+}
+
+.menu-toggle[aria-expanded=true] .line {
+  position: absolute;
+  top: 5px;
+  right: 0px;
+}
+
+.menu-toggle[aria-expanded=true] .line2 {
+  background: transparent;
+}
+
+.menu-toggle[aria-expanded=true] .line1 {
+  transform: rotate(45deg);
+  left: 0;
+}
+
+.menu-toggle[aria-expanded=true] .line3 {
+  transform: rotate(-45deg);
+  left: 0;
+}
+
+/* Afficher ou masquer le menu avec les titres */
+.main-navigation .menu-title {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
+.main-navigation.toggled .menu-title {
+  visibility: visible;
+  opacity: 1;
+  height: calc(100vh - 80px);
+  margin-top: 33px;
+}
+
+/* Disposition du titre du header */
+.site-title {
+  text-align: center;
+  padding-top: 15px;
+}
+
+/* Menu - Disposition du bloc avec les titres */
+.menu-title {
+  width: 100%;
+  background-color: #FFF5E9;
+  text-align: center;
+  font-family: "Roboto Mono", monospace;
+  font-size: 64px;
+  background-image: url("../assets/images/Hibiscus footer.png");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  /* Menu - couleur des titres */
+}
+.menu-title a {
+  font-size: 64px;
+}
+.menu-title a:hover {
+  color: black;
+  text-shadow: 0px 0px 10px #ee5006;
+}
+
+/* Menu - studio koukaki en bas du menu */
+.studiokoukakifooter {
+  margin-top: 15vh;
+}
+
+/* Menu - ajout des images */
+.histoire::before {
+  content: url("../assets/images/Orchid-menu.png");
+  position: absolute;
+  left: 0;
+  top: -15vh;
+}
+.histoire::after {
+  content: url("../assets/images/Sunflower.png");
+  position: absolute;
+  right: 15vw;
+  top: -10vh;
+  animation: rotation-fleur 15s linear infinite;
+}
+
+.personnages::before {
+  content: url("../assets/images/kawaneko-koukaki.png");
+  position: absolute;
+  left: 25vh;
+  top: -15vh;
+  animation: 6s linear 1s infinite normal both running logo-flotte;
+}
+.personnages::after {
+  content: url("../assets/images/Jaakuna-koukaki.png");
+  position: absolute;
+  right: 15vw;
+  top: 10vh;
+  animation: 6s linear 3s infinite normal both running logo-flotte;
+}
+
+.lieu::before {
+  content: url("../assets/images/Flower.png");
+  position: absolute;
+  left: 28vh;
+  top: 0vh;
+  animation: rotation-fleur 15s linear infinite;
+}
+.lieu::after {
+  content: url("../assets/images/Random Flower.png");
+  position: absolute;
+  right: 0vw;
+  top: -10vh;
+}
+
+.studiokoukaki::before {
+  content: url("../assets/images/orenjiiro-koukaki.png");
+  position: absolute;
+  left: 10vh;
+  bottom: -13vh;
+  animation: 6s linear 2s infinite normal both running logo-flotte;
+}
+
+/* Responsive Design */
+/* Responsive Design - Taille bloc titre du site */
+@media (max-width: 550px) {
+  .site-title {
+    width: 85%;
+  }
+}
+/* Responsive Design - Titre  */
+@media (max-width: 470px) {
+  #studio h2 {
+    font-size: 25px;
+  }
+}
+/* Responsive Design - Menu afficher le Burger */
+@media screen and (min-width: 700px) {
+  .menu-toggle {
+    display: block;
+  }
+}
+/* Responsive Design - Menu position du Burger */
+@media (max-width: 550px) {
+  .menu-toggle {
+    right: 5%;
+  }
+}
+/* Responsive Design - Menu police titre */
+@media (max-width: 1000px) {
+  .menu-title a {
+    font-size: 30px !important;
+  }
+}
+/* Responsive Design - Menu masquer les fleurs */
+@media screen and (max-width: 800px) {
+  .histoire::before, .histoire::after {
+    display: none;
+  }
+  .personnages::before, .personnages::after {
+    display: none;
+  }
+  .lieu::before, .lieu::after {
+    display: none;
+  }
+  .studiokoukaki::before {
+    display: none;
+  }
+}
+/* Responsive Design - logo sur video */
+@media (max-width: 1000px) {
+  .logo-parallaxe {
+    background-size: 60%;
+    background-position: center;
+  }
+}
+@media (max-width: 1000px) {
+  .logo-parallaxe {
+    background-size: 50%;
+    background-position: center;
+  }
+}
+/* Responsive Design - masquer la video sur mobile et afficher image*/
+@media (max-width: 500px) {
+  .banner video {
+    visibility: hidden;
+  }
+  .banner {
+    background: url("../assets/images/banner.png") no-repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+}
+/* Responsive Design - Personnages */
+@media (max-width: 800px) {
+  .story #characters {
+    width: 100%;
+    margin: 0px;
+  }
+  .story #characters h3 {
+    margin-left: 0px;
+    width: 100%;
+  }
+  swiper-slide img {
+    width: 70%;
+  }
+}
+@media (min-width: 800px) and (max-width: 1200px) {
+  .story #characters h3 {
+    margin-left: 300px;
+  }
+  swiper-container {
+    width: 100%;
+  }
+}
+/* Responsive Design - Lieu masquer les nuages */
+@media (max-width: 700px) {
+  .story #place img {
+    display: none;
+  }
+}
+/* Responsive Design - Oscars */
+@media (max-width: 1000px) {
+  #oscars {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .oscars-msg {
+    margin-left: 0px;
+    background-size: 100%;
+  }
+  .oscars-msg h3 {
+    text-align: center;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 70px;
+    font-size: 3rem;
+  }
+}
+@media (max-width: 700px) {
+  .oscars-msg h3 {
+    font-size: 30px;
+    padding-top: 40px;
+  }
+  .oscars-msg {
+    height: 250px;
+  }
+}
+@media (max-width: 550px) {
+  .oscars-msg h3 {
+    font-size: 22px;
+  }
+  .oscars-msg {
+    height: 200px;
+  }
+}
