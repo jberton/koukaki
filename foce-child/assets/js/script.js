@@ -1,12 +1,10 @@
 // Initialiser Skrollr après avoir chargé le fichier skrollr.min.js
-(function( $ ) {
+(function($) {
     // Init Skrollr
-    var s = skrollr.init({
-        render: function(data) {
-            //Debugging - Log the current scroll position.
-            //console.log(data.curTop);
-        }
-    });
+    var s = skrollr.init();
+    if (s.isMobile()) {
+        s.destroy();
+    }        
 } )();
 
 // Ajouter un effet d'apparition au scroll sur une section avec l'observateur d'intersection

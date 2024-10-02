@@ -48,8 +48,8 @@
 
 /* Masquer les fleurs autours du footer */
 .site-footer::before {
-  content: "";
+  display: none;
 }
 .site-footer::after {
-  content: "";
+  display: none;
 }

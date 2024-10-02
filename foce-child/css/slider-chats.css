@@ -1,5 +1,9 @@
 @charset "UTF-8";
 /* Slider tête de chats */
+.story #characters {
+  width: 100%;
+}
+
 swiper-container {
   width: 100%;
   max-width: 1440px;

@@ -64,15 +64,12 @@
     }
   }
 
-  /* Responsive Design - masquer la video sur mobile et afficher image*/
+  /* Responsive Design - Animation titre enlever l'effet de flottement */
   @media (max-width: 500px) {
-    .banner video {
-        visibility: hidden;
-    }
-    .banner {
-      background: url("../assets/images/banner.png") no-repeat;
-      background-position: center;
-      background-size: 100%;
+    .logo-parallaxe{
+        background-attachment: scroll;
+        animation: 1.5s linear logo-load;
+        scale: 0.8;
     }
   }
   
@@ -124,6 +121,9 @@
       padding-right: 0px;
       padding-top: 70px;
       font-size: 3rem;
+    }
+    #oscars::before, #oscars::after {
+      display: none;
     }
   }
   @media (max-width: 700px) {

@@ -51,9 +51,9 @@
 /* Masquer les fleurs autours du footer */
 .site-footer {
     &::before {
-      content: "";
+      display: none;
     }
     &::after {
-      content: "";
+      display: none;
     }
 }

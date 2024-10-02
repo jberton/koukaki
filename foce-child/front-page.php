@@ -11,7 +11,7 @@ get_header();
                 src="<?php echo get_stylesheet_directory_uri() . '/assets/video/Studio-koukaki.mp4'; ?>"
                 type="video/mp4">
             </video>
-            <div id="logo-parallaxe" data-bottom="@class:logo-parallaxe" data-start="@class:logo-parallaxe is-visible"></div>
+            <div id="logo-parallaxe" data-100-bottom="@class:logo-parallaxe is-visible" data-start="@class:logo-parallaxe" class="logo-parallaxe"></div>
         </section>
         <section id="story" class="story animate-on-scroll">
                 <h2><span class="animate-on-scroll">L'histoire</span></h2>
