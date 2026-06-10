@@ -1,0 +1,103 @@
+/* Disposition video avec logo dessus*/
+.banner {
+  position: relative;
+  min-height: auto;
+  background-image: none;
+  
+  & img {
+    position: absolute;
+  }
+}
+
+/* Animation effet parallaxe logo sur video */
+.logo-parallaxe{
+background: url("../assets/images/logo.png") no-repeat;
+background-attachment: fixed;
+background-position: center;
+background-size: 100%;
+height: 100%;
+width: 680px;
+position: absolute;
+/* Combiner les 2 animations */
+animation: 
+1.5s linear logo-load,
+/* @keyframes duration | easing-function | delay | iteration-count | direction | fill-mode | play-state | name */
+6s linear 2s infinite normal both running logo-flotte;
+}
+
+.logo-parallaxe.is-visible{
+background-attachment: scroll;
+animation: none;
+background-position: bottom;
+transition: background-position 2s ease;
+}
+
+/* Animation apparition de la vidéo */
+@keyframes banner-video {
+  0% {
+      opacity: 0;
+      transform: translateY(-200px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+.banner video {
+  animation-name: banner-video;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  width: 100%;
+}
+
+/* Animation apparition du logo sur la vidéo */
+@keyframes logo-load {
+  0% {
+      opacity: 0;
+      transform: translateY(200px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+/* Animation logo effet de flottement comme la tete des chats */
+@keyframes logo-flotte {
+      30%{transform: translateX(30px) translateY(20px);}
+      40%{transform: rotate(3deg);}
+      50%{transform: translateX(-20px) translateY(0px);}
+      60%{transform: translateX(10px) translateY(-10px);}
+      70%{transform: rotate(-3deg);}
+      80%{transform: translateX(20px) translateY(20px);}
+      95%{transform: rotate(2deg);}
+      100%{transform: translateX(0px) translateY(0px);}
+  }
+
+/* Animation apparition des titres */
+@keyframes titre-anim {
+  0% {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+h2 span.is-visible {
+  animation-name: titre-anim;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+/* Disposition des titres */
+h2 span{
+  opacity: 0;
+  display: block;
+}

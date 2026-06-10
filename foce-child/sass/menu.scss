@@ -1,0 +1,124 @@
+/* Animation du Menu Burger */
+.menu-toggle{
+  width: 50px;
+  position: absolute;
+  right:10%;
+  top: 25px;
+  padding: 0% !important;
+  cursor: pointer;
+}
+.line {
+  width: 22px;
+  height: 2px;
+  transition: transform 0.5s;
+}
+.menu-toggle[aria-expanded="true"] .line {
+  position: absolute;
+  top: 5px;
+  right: 0px;
+}
+.menu-toggle[aria-expanded="true"] .line2 { background: transparent; }
+.menu-toggle[aria-expanded="true"] .line1 { transform: rotate(45deg); left:0}
+.menu-toggle[aria-expanded="true"] .line3 { transform: rotate(-45deg); left:0}
+
+/* Afficher ou masquer le menu avec les titres */
+.main-navigation .menu-title{
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+.main-navigation.toggled .menu-title{
+  visibility: visible;
+  opacity: 1;
+  height: calc(100vh - 80px);
+  margin-top: 33px;
+}
+
+/* Disposition du titre du header */
+.site-title{
+  text-align: center;
+  padding-top: 15px;
+}
+
+/* Menu - Disposition du bloc avec les titres */
+.menu-title {
+  width: 100%;
+  background-color: #FFF5E9;
+  text-align: center;
+  font-family: "Roboto Mono", monospace;
+  font-size: 64px;
+  background-image: url("../assets/images/Hibiscus footer.png");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+
+  /* Menu - couleur des titres */
+  & a {
+    font-size: 64px;
+  }
+  & a:hover {
+    color: black;
+    text-shadow: 0px 0px 10px #ee5006;
+  }
+}
+
+/* Menu - studio koukaki en bas du menu */
+.studiokoukakifooter {
+  margin-top: calc(100vh - 85vh);
+}
+
+/* Menu - ajout des images */
+.histoire {
+  &::before {
+    content: url("../assets/images/Orchid-menu.png");
+    position: absolute;
+    left: 0;
+    top: -15vh;
+  }
+  &::after {
+    content: url("../assets/images/Sunflower.png");
+    position: absolute;
+    right: 15vw;
+    top: -10vh;
+    @include fleurs-tournantes;
+  }
+}
+.personnages {
+  &::before {
+    content: url("../assets/images/kawaneko-koukaki.png");
+    position: absolute;
+    left: 25vh;
+    top: -15vh;
+    animation: 6s linear 1s infinite normal both running logo-flotte;
+  }
+  &::after {
+    content: url("../assets/images/Jaakuna-koukaki.png");
+    position: absolute;
+    right: 15vw;
+    top: 10vh;
+    animation: 6s linear 3s infinite normal both running logo-flotte;
+  }
+}
+.lieu {
+  &::before {
+    content: url("../assets/images/Flower.png");
+    position: absolute;
+    left: 28vh;
+    top: 0vh;
+    @include fleurs-tournantes;
+  }
+  &::after {
+    content: url("../assets/images/Random Flower.png");
+    position: absolute;
+    right: 0vw;
+    top: -10vh;
+  }
+}
+.studiokoukaki {
+  &::before {
+    content: url("../assets/images/orenjiiro-koukaki.png");
+    position: absolute;
+    left: 10vh;
+    bottom: -13vh;
+    animation: 6s linear 2s infinite normal both running logo-flotte;
+  }
+}

@@ -1,0 +1,49 @@
+/* Animation de rotation sur toutes les fleurs*/
+@keyframes rotation-fleur {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.story h2::after {
+  animation: rotation-fleur 15s linear infinite;
+  transform-origin: 50% 43%;
+}
+
+.story__article::after {
+  animation: rotation-fleur 15s linear infinite;
+}
+
+#studio h2::before {
+  animation: rotation-fleur 15s linear infinite;
+  transform-origin: 50% 46%;
+}
+#studio h2::after {
+  animation: rotation-fleur 15s linear infinite;
+  transform-origin: 50% 43%;
+}
+
+#oscars::before {
+  animation: rotation-fleur 15s linear infinite;
+}
+#oscars::after {
+  animation: rotation-fleur 15s linear infinite;
+}
+
+.site-footer ul::after {
+  animation: rotation-fleur 15s linear infinite;
+}
+
+/* Animation apparition des sections */
+.story.animate-on-scroll, .studio.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.story.animate-on-scroll.is-visible, .studio.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
